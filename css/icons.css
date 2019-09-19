@@ -1,0 +1,437 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "tigoweb-lock";
+  src:url("/base/fonts/tigoweb-lock.eot");
+  src:url("/base/fonts/tigoweb-lock.eot?#iefix") format("embedded-opentype"),
+    url("/base/fonts/tigoweb-lock.woff") format("woff"),
+    url("/base/fonts/tigoweb-lock.ttf") format("truetype"),
+    url("/base/fonts/tigoweb-lock.svg#tigoweb-lock") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "tigoweb-lock" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="build-"]:before,
+[class*=" build-"]:before {
+  font-family: "tigoweb-lock" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.build-arrow-cursor:before {
+  content: "\61";
+}
+.build-edit-pen-1:before {
+  content: "\72";
+}
+.build-check-16:before {
+  content: "\e004";
+}
+.build-capital-letter:before {
+  content: "\e012";
+}
+.build-inverter:before {
+  content: "\e01a";
+}
+.build-vcard:before {
+  content: "\e02b";
+}
+.build-sort-row-2:before {
+  content: "\e048";
+}
+.build-chevron-medium-1-01:before {
+  content: "\e056";
+}
+.build-chevron-medium-4-01:before {
+  content: "\e065";
+}
+.build-edit-pen-5:before {
+  content: "\e0de";
+}
+.build-electricity-lightning:before {
+  content: "\e0df";
+}
+.build-cloud:before {
+  content: "\e10d";
+}
+.build-cloud-upload-2:before {
+  content: "\e11a";
+}
+.build-download-3:before {
+  content: "\e11c";
+}
+.build-box-star:before {
+  content: "\e122";
+}
+.build-google-plus-outline:before {
+  content: "\e123";
+}
+.build-home:before {
+  content: "\e130";
+}
+.build-home-1:before {
+  content: "\e158";
+}
+.build-whiteboard:before {
+  content: "\e15f";
+}
+.build-search:before {
+  content: "\e187";
+}
+.build-help-question-2:before {
+  content: "\e19d";
+}
+.build-delete-trash-1:before {
+  content: "\e1a6";
+}
+.build-hail-weather:before {
+  content: "\e1c2";
+}
+.build-lightning-weather:before {
+  content: "\e1c3";
+}
+.build-rain-weather:before {
+  content: "\e1c4";
+}
+.build-snow-weather:before {
+  content: "\e1c5";
+}
+.build-sun-weather:before {
+  content: "\e1d5";
+}
+.build-close-1:before {
+  content: "\e1fd";
+}
+.build-close-3:before {
+  content: "\e267";
+}
+.build-bigger-make-2:before {
+  content: "\e27e";
+}
+.build-triangle-big-1-01:before {
+  content: "\e28c";
+}
+.build-straight-big-3-01:before {
+  content: "\e2a3";
+}
+.build-barcode:before {
+  content: "\e2ab";
+}
+.build-growth-chart:before {
+  content: "\e2ae";
+}
+.build-eye-view-1:before {
+  content: "\e2c1";
+}
+.build-left-right-scale-2:before {
+  content: "\e2ca";
+}
+.build-minus-1:before {
+  content: "\e2cb";
+}
+.build-checkbox-check:before {
+  content: "\e31b";
+}
+.build-checkbox-fill:before {
+  content: "\e31c";
+}
+.build-checkbox-uncheck:before {
+  content: "\e31d";
+}
+.build-landscape:before {
+  content: "\e31e";
+}
+.build-string:before {
+  content: "\e31f";
+}
+.build-attention-4:before {
+  content: "\65";
+}
+.build-attention-1:before {
+  content: "\69";
+}
+.build-add-botton-2:before {
+  content: "\e369";
+}
+.build-array:before {
+  content: "\e18f";
+}
+.build-charts:before {
+  content: "\e193";
+}
+.build-signal-2:before {
+  content: "\e3c6";
+}
+.build-blocks:before {
+  content: "\e3c8";
+}
+.build-move-left-1:before {
+  content: "\e3dd";
+}
+.build-earth:before {
+  content: "\e3f3";
+}
+.build-skyscraper-2:before {
+  content: "\e3f5";
+}
+.build-chevron-double-3-01:before {
+  content: "\e41a";
+}
+.build-chevron-double-mix-3-01:before {
+  content: "\e41d";
+}
+.build-chevron-medium-2-01:before {
+  content: "\e41e";
+}
+.build-triangle-big-2-01:before {
+  content: "\e43b";
+}
+.build-android-time:before {
+  content: "\e477";
+}
+.build-alerts:before {
+  content: "\e4db";
+}
+.build-glance:before {
+  content: "\e4dc";
+}
+.build-portrait:before {
+  content: "\e4dd";
+}
+.build-info:before {
+  content: "\e4ef";
+}
+.build-playback-rewind:before {
+  content: "\e4f6";
+}
+.build-user:before {
+  content: "\e54c";
+}
+.build-back:before {
+  content: "\e596";
+}
+.build-settings:before {
+  content: "\e5a7";
+}
+.build-system:before {
+  content: "\e5a9";
+}
+.build-key-secure-2:before {
+  content: "\2e";
+}
+.build-preferences-setting-1:before {
+  content: "\e035";
+}
+.build-rounded-medium-5-01:before {
+  content: "\e038";
+}
+.build-plus-3:before {
+  content: "\e5d4";
+}
+.build-plus-6:before {
+  content: "\e5d5";
+}
+.build-chevron-medium-3-01:before {
+  content: "\e32b";
+}
+.build-pulse:before {
+  content: "\e330";
+}
+.build-attention-3:before {
+  content: "\e347";
+}
+.build-android-calendar:before {
+  content: "\e616";
+}
+.build-grid:before {
+  content: "\e24d";
+}
+.build-bigger-make-1:before {
+  content: "\e633";
+}
+.build-more-users-4:before {
+  content: "\e650";
+}
+.build-clouds-cloudy:before {
+  content: "\e67b";
+}
+.build-close-3-1:before {
+  content: "\e085";
+}
+.build-clippy:before {
+  content: "\e224";
+}
+.build-move-2:before {
+  content: "\e5b3";
+}
+.build-down-scale-1:before {
+  content: "\e06a";
+}
+.build-minus-3:before {
+  content: "\e6fd";
+}
+.build-cloud-sun:before {
+  content: "\e718";
+}
+.build-direction-move-1:before {
+  content: "\6d";
+}
+.build-magnet:before {
+  content: "\62";
+}
+.build-add-button-4:before {
+  content: "\6c";
+}
+.build-down-up-scroll:before {
+  content: "\70";
+}
+.build-toolbox:before {
+  content: "\66";
+}
+.build-down-up-scale-2:before {
+  content: "\74";
+}
+.build-chevron-double-4-01:before {
+  content: "\4a";
+}
+.build-wrench:before {
+  content: "\54";
+}
+.build-playback-pause:before {
+  content: "\21";
+}
+.build-playback-play:before {
+  content: "\22";
+}
+.build-attention-2:before {
+  content: "\64";
+}
+.build-information-2:before {
+  content: "\68";
+}
+.build-arrow-transfer-torrent-2:before {
+  content: "\63";
+}
+.build-mail-sent-3:before {
+  content: "\6f";
+}
+.build-squared-medium-6-01:before {
+  content: "\5a";
+}
+.build-straight-big-4-01:before {
+  content: "\32";
+}
+.build-minus-7:before {
+  content: "\42";
+}
+.build-move-up-1:before {
+  content: "\43";
+}
+.build-add-botton-3:before {
+  content: "\67";
+}
+.build-accounts:before {
+  content: "\71";
+}
+.build-panel:before {
+  content: "\25";
+}
+.build-playback-fast-forward:before {
+  content: "\2b";
+}
+.build-dot-circle-o:before {
+  content: "\77";
+}
+.build-more-users-3:before {
+  content: "\6a";
+}
+.build-language:before {
+  content: "\6e";
+}
+.build-hdd-o:before {
+  content: "\75";
+}
+.build-database:before {
+  content: "\76";
+}
+.build-close-off-1:before {
+  content: "\78";
+}
+.build-tags:before {
+  content: "\73";
+}
+.build-dashboard:before {
+  content: "\6b";
+}
+.build-filter:before {
+  content: "\7a";
+}
+.build-credit-card:before {
+  content: "\79";
+}
+.build-text-word-file:before {
+  content: "\41";
+}
+.build-home-window:before {
+  content: "\44";
+}
+.build-skyscraper-tower-1:before {
+  content: "\45";
+}
+.build-bookmark-star-favorite:before {
+  content: "\46";
+}
+.build-nodes-5:before {
+  content: "\47";
+}
+.build-nodes-6:before {
+  content: "\48";
+}
+.build-cubes:before {
+  content: "\49";
+}
+.build-arrow-loop-2:before {
+  content: "\4b";
+}
+.build-refresh-reload-3:before {
+  content: "\4c";
+}
+.build-check-list:before {
+  content: "\4d";
+}
+.build-drive:before {
+  content: "\4e";
+}
+
+.icon {
+  margin: 0;
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  float: left;
+  font-size: 24px;
+}
+.switch_list {
+  color: #999;
+}

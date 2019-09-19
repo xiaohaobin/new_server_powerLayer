@@ -1,0 +1,31 @@
+@charset "utf-8";
+.toggle_date_btn{
+	color: #666;
+	background: #f2f2f2;	
+	border: 1px solid #bbb;
+	border-right: none;
+}
+.toggle_date_btn_box a:first-child{
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+.toggle_date_btn_box a:last-child{
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
+	border-right: 1px solid #bbb;
+}
+.toggle_date_btn.active{
+	background: #fff;
+}
+a:hover{text-decoration: none;}
+.Wdate{
+	display: none;
+    height: 3.22vh;
+    border-radius: 15px;
+    background: none;
+    border: 1px solid #bbb;
+    padding-left: 10px;
+    box-sizing: border-box !important;
+}
+.Wdate.active{display: block;}
+.panelChartBox_content{width: 100%;height: 500px;padding: 20px 30px;box-sizing: border-box;}

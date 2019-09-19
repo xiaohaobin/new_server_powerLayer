@@ -1,0 +1,204 @@
+@charset "utf-8";
+/* 架构样式 sss */
+.container {
+    background: #f2f2f2;
+}
+.div_content {
+    background: #fff;
+    min-height: 666px;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 80%;
+}
+.mb-panel {
+    width: 100%;
+    min-height: 516px;
+    position: relative;
+    padding: 10px;
+}
+.mb-panel, .mb-panel * {
+    box-sizing: border-box;
+}
+/* 架构样式 eee */
+
+
+
+
+/* 左边菜单样式 sss*/
+
+/* .navBox {
+    background: #fff;
+    min-height: 666px;
+    border-radius: 5px;
+    width: 16%;
+    margin: 20px auto;
+} */
+.panelListBox .list {
+	/* border-bottom: solid 1px #316a91; */
+	margin-top: 1rem;
+}
+.panelListBox .list *{border: none !important;}
+.panelListBox .list ul li {
+	/* background-color: #467ca2; */
+	border: solid 1px #316a91;
+	border-bottom: 0;
+}
+.panelListBox .list ul li a {
+	padding-left: 10px;
+	/* padding-left: 25px; */
+	color: #666;
+	font-size: 12px;
+	display: block;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+}
+.panelListBox .list ul li .inactive {
+	/* background: url(../img/leftNav/show.png) no-repeat 184px center; */
+	
+}
+.panelListBox .list ul li .inactive:before{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: url(../img/leftNav/show.png) no-repeat;
+	background-size:cover; 
+	clear: both;
+	content: "";
+	vertical-align: sub;
+    margin-right: 1px;
+}
+.panelListBox .list ul li .inactives {
+	/* background: url(../img/leftNav/hide.png) no-repeat 184px center; */
+	
+}
+.panelListBox .list ul li .inactives:before{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: url(../img/leftNav/hide.png) no-repeat;
+	background-size:cover; 
+	clear: both;
+	content: "";
+	vertical-align: sub;
+    margin-right: 1px;
+}
+.panelListBox .list ul li ul {
+	display: none;
+}
+.panelListBox .list ul li ul li {
+	border-left: 0;
+	border-right: 0;
+	/* background-color: #6196bb; */
+	border-color: #467ca2;
+}
+.panelListBox .list ul li ul li ul {
+	display: none;
+}
+.panelListBox .list ul li ul li a {
+	padding-left: 20px;
+	/* padding-left: 35px; */
+}
+.panelListBox .list ul li ul li ul li {
+	/* background-color: #d6e6f1; */
+	border-color: #6196bb;
+}
+.panelListBox .last {
+	/* background-color: #d6e6f1; */
+	border-color: #6196bb;
+}
+.panelListBox .list ul li ul li ul li a {
+	/* color: #316a91; */
+	/* padding-left: 30px; */
+	padding-left: 45px;
+}
+.panelSearchBox{
+	margin-left: 8%;
+    margin-top: 1.5rem;
+    margin-right: 8%;
+    position: relative;
+}
+.panel_serach_input{
+	width: 100%;
+    border: none;
+    border-bottom: 1px solid #009cff;
+    height: 28px;
+    padding-left: 10px;
+	padding-right: 25px;
+	box-sizing: border-box;
+}
+.panelTitleBox h4{
+	font-size: 14px;
+    margin-left: 8%;
+    margin-top: 1rem;
+}
+.panel_serach_btn{
+	position: absolute;
+	z-index: 100;
+	right: 1%;
+	top: 1%;
+}
+.panelListBox{
+	margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 1rem;
+}
+.panel_LV1>a>span:before{
+	display: inline-block;
+	width: 12px;
+	height: 14px;
+	background: url(../img/leftNav/nav_inverter.png) no-repeat;
+	background-size:cover; 
+	clear: both;
+	content: "";
+	vertical-align: sub;
+	margin-right: 5px;
+}
+.panel_LV1>a>span.hover:before{
+	background: url(../img/leftNav/nav_inverter_hover.png) no-repeat;
+	background-size:cover; 
+}
+.panel_LV2>a>span:before{
+	display: inline-block;
+	width: 12px;
+	height: 14px;
+	background: url(../img/leftNav/nav_zuchuan.png) no-repeat;
+	background-size:cover; 
+	clear: both;
+	content: "";
+	vertical-align: sub;
+	margin-right: 5px;
+}
+.panel_LV2>a>span.hover:before{
+	background: url(../img/leftNav/nav_zuchuan_hover.png) no-repeat;
+	background-size:cover; 
+}
+.panel_LV3>a>span:before{
+	display: inline-block;
+	width: 12px;
+	height: 14px;
+	background: url(../img/leftNav/nav_panel.png) no-repeat;
+	background-size:cover; 
+	clear: both;
+	content: "";
+	vertical-align: sub;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+.panel_LV3>a>span.hover:before{
+	background: url(../img/leftNav/nav_panel_hover.png) no-repeat;
+	background-size:cover; 
+}
+.panel_LV3>a>span.hover{
+	background: #fff;
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 0px 2px 5px 2px #ddd;
+}
+.panel_powerTitle h5 img{
+	vertical-align: sub;
+	margin-right: 5px;
+}
+.fuzzy{color: #009CFF;}
+/* 左边菜单样式 eee*/

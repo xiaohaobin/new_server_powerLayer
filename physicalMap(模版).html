@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>物理图</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/system.css">
+		
+		<style type="text/css">
+			.mb-title>div{
+				padding: 12px 20px;
+				cursor: pointer;
+				position: relative;
+				border-radius: 0 0 5px 5px;
+				color: #999;
+			}
+			.mb-title>div>i {
+				display: block;
+				content: '';
+				width: 0;
+				height: 2px;
+				background: #009cff;
+				transition: All 0.3s linear;
+				position: absolute;
+				top: 0px;
+				left: 50%;
+				right: 0px;
+			}
+			.mb-title>div>i.cur{width: 100%;left: 0;}
+			#header{
+				height: 200px;
+				widows: 100%;
+			}
+			
+			/* 架构样式 sss */
+			.container {
+			    background: #f2f2f2;
+			}
+			.div_content {
+			    background: #fff;
+			    min-height: 666px;
+			    border-radius: 5px;
+			    margin: 20px auto;
+			    width: 80%;
+			}
+			.mb-panel {
+			    width: 100%;
+			    min-height: 516px;
+			    position: relative;
+			    padding: 10px;
+			}
+			.mb-panel, .mb-panel * {
+			    box-sizing: border-box;
+			}
+			.navBox {
+				background: #fff;
+				min-height: 666px;
+				border-radius: 5px;
+				width: 16%;
+				margin: 20px auto;
+			}
+			/* 架构样式 eee */
+		</style>
+		
+		<link rel="stylesheet" type="text/css" href="css/summary.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" href="css/icons.css">
+		
+		<!-- 太阳样式sss -->
+		<style type="text/css">
+			#wide_time_player {
+				background: url(img/bg_wide_time_player.png) center repeat-x;
+			}
+			
+			#wide_time_player .sTimeSlider {
+				background: url(img/time_slider_bg.png) center repeat-x;
+			}
+			
+			.ui-widget-content {
+				background: #ffffff url(img/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+				width: 7px;
+				height: 24px;
+				background: red;
+			}
+			
+			.sTimeSlider>span {
+				width: 7px;
+				height: 24px;
+				background: red;
+				position: absolute;
+				z-index: 700;
+			}
+			div.switch_icon{
+				background: url(img/summary_sprite_controls2.png) no-repeat 0 0;
+			}
+			.switch_icon.play {
+			    background-position: -26px -50px;
+			}
+			
+			#zoom_slider_cont {
+			    position: absolute;
+			    top: 30px;
+			    left: 10px;
+			    z-index: 10;
+			    height: 291px;
+			    width: 26px;
+			    background: url(img/bg_zoom.png) !important;
+			}
+			#sZoomSlider{
+				position: relative;
+			}
+			#sZoomSlider>span {
+				position: absolute;
+				display: inline-block !important;
+				width: 24px !important;
+				height: 7px !important;
+			    border: 1px solid #aaaaaa;
+			    background: #ffffff url(img/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x !important;
+			    color: #222222;
+			}
+			div#wide_time_player .wtp_time_ctrl{padding-left: 0;}
+			div#wide_time_player .tp_play{padding: 5px;border: none;}
+			div#wide_time_player .refresh{
+				    padding-left: 10px;
+					border: none;
+					margin: 15px 30px;
+					padding-left: 0;
+			}
+			.speedBox{
+				cursor: pointer;
+				margin: 17px 0px;
+				margin-right: 15px;
+			}
+			#wide_time_player .sliderCont{background: transparent;border: none;}
+			#wide_time_player{background: none;}
+			.noFloat>div{float: none !important;}
+			#wide_time_player{position: relative;}
+			.panelChartBox_content{width: 100%;height: 100%;}
+			g[transform="translate(8,15)"]{
+				display: none;
+			}
+			
+			.lineChartBox{
+				position: absolute;
+				right: 0;
+				right: 65px;
+				top: 5px;
+				height: 70px;
+				z-index: 500;
+				width: 1200px !important;
+			}
+			#wide_time_player .sliderCont{width: 1190px;left: 104px;}
+			@media screen and (max-width:1600px){
+				.lineChartBox{
+					position: absolute;
+					right: 0;
+					right: -3px;
+					top: 5px;
+					height: 70px;
+					z-index: 500;
+					width: 1010px !important;
+				}
+				#wide_time_player .sliderCont{width: 1002px;}
+			}
+			@media screen and (max-width:1440px){
+				.lineChartBox{
+					position: absolute;
+					right: 0;
+					right: -2px;
+					top: 5px;
+					height: 70px;
+					z-index: 500;
+					width: 879px !important;
+				}
+				#wide_time_player .sliderCont{width: 874px;}
+			}
+			@media screen and (max-width:1366px){
+				.lineChartBox{
+					position: absolute;
+					right: 0;
+					right: -1px;
+					top: 5px;
+					height: 70px;
+					z-index: 500;
+					width: 818px !important;
+				}
+				#wide_time_player .sliderCont{width: 814px;}
+			}
+			
+			.mainPanelToolbar img{vertical-align: text-top;}
+		</style>
+			<!-- 太阳样式eee -->
+	</head>
+	<body>
+		<!-- 头部 sss-->
+		<div id="header">
+			
+		</div>
+		<!--头部 eee -->
+		
+		
+		<!-- 中间内容sss -->
+		<div class="container flex_space-evenly">
+			
+			<!-- 左边菜单sss -->
+			<div class="navBox">
+				<iframe src="leftNav.html" width="" height="" id="leftNavIframe"></iframe>
+			</div>
+			<!-- 左边菜单eee -->
+			
+			<!-- 右边主要内容sss -->
+			<div class="div_content" id="devicePage">
+				<div class="mb-title flex_flex-start">
+					<div>
+						<a href="physicalMap.html">物理图</a>
+						<i class="cur"></i>
+					</div>	
+					<div>
+						<a href="logicDiagram.html">逻辑图</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="chart.html">图表</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="notice.html">警告信息</a>
+						<i></i>
+					</div>	
+				</div>
+				
+				
+				<div class="mb-panel" id="mainAppBox">
+					<div class="datePickerBox parentClear mb-5">
+						<input id="datePicker_hours" class="Wdate active rf" readonly="readonly"/>
+					</div>
+					
+					<div class="main_container" id="mc">
+						
+							<!-- 播放器sss -->
+						<div id="wide_time_player" class="mb-10 pt-10">
+							<div class="refresh mr-20">
+								<div class="switch_icon refresh_icon">&nbsp;</div>
+							</div>
+							<div class="speedBox noFloat fs-14">
+								<div class="constant_speed mainColor">
+									<b>X1.0</b>
+									<span class="speed_sign"></span>
+								</div>
+								<div class="quick_speed c_gray">
+									<b>X1.5</b>
+									<span class="speed_sign"></span>
+								</div>
+							</div>
+							
+							<div class="noFloat parentClear chartPlayBox">
+								<div class="parentClear">
+									<div class="tp_prevMin">
+										<div class="switch_icon tp_prevMinImg">&nbsp;</div>
+									</div>
+									<div class="tp_play">
+										<div class="switch_icon tp_playImg play">&nbsp;</div>
+									</div>
+									<div class="tp_nextMin">
+										<div class="switch_icon tp_nextMinImg">&nbsp;</div>
+									</div>
+								</div>
+								<div class="wtp_time_ctrl parentClear noFloat text-c">
+									<span>时间:</span>
+									<span class="time text-c">18:46</span>
+								</div>
+							</div>
+						
+							<div class="lineChartBox">
+								<div class="panelChartBox_content" id="panelChartBox_content"></div>
+							</div>
+											
+							<div class="sliderCont">
+								<div id="sliderContInner">
+									<div class="sTimeSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+										<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 78.2488%;"></span>
+									</div>
+								</div>										
+							</div>
+						</div>
+						<!-- 播放器eee -->
+						
+						<!-- 优化器面板的操作栏sss -->
+						<div class="pd_20 mainPanelToolbar flex_flex-start">
+							<div class="mr_20">
+								<img src="img/panel_error_icon.png" >
+								<span>发电异常</span>
+							</div>
+							<div class="mr_20">
+								<img src="img/panel_outline_icon.png.png" >
+								<span>不在线</span>
+							</div>
+							
+							<div class="mr_20">
+								<img src="img/panel_outline_icon.png.png" >
+								<span>无优化器</span>
+							</div>
+							<div class="mr_20">
+								
+								<span>单位</span>
+								<span>:Wh</span>
+							</div>
+							
+							<!-- <div class="mr_20">
+								<a href="javascript:;" class="editLayerBtn pt_5 pb_5 pl_20 pr_20">
+									<img src="img/edit.png" alt="">
+									<span>修改布局</span>
+								</a>
+							</div> -->
+						</div>
+						<!-- 优化器面板的操作栏eee -->
+						
+						<!-- 太阳动画模块sss -->
+						<div class="main_tab_frame">
+							<div id="content_top" style="height: 754px;">
+							
+								<div class="maincontent_main">
+									<div id="canvasHolder">
+										<canvas id="sunCanvas" width="1036" height="754"></canvas>							
+										<!--面板sss-->
+										<canvas id="mainCanvas" width="1036" height="754" style="display: none;"></canvas>
+										<!--面板eee-->			
+													
+									</div>
+								</div>
+							</div>
+						</div>					
+						<!-- 太阳动画模块eee -->
+						
+						
+					
+					</div>
+					
+					
+				</div>
+			</div>
+			
+			<!-- 右边主要内容sss -->
+		</div>
+		<!-- 中间内容 -->
+		
+		<footer>
+			<div class="text-c">
+				<span>地步</span>
+			</div>
+		</footer>
+		
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.xhb.plugin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/highcharts-more.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/no-data-to-display.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/solid-gauge.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/summary.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//初始化时间选择器
+				
+		</script>
+	</body>
+</html>

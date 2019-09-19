@@ -1,0 +1,175 @@
+@charset "utf-8";
+body{
+	color:#666;
+}
+.mainColor{
+	color: #0099ff !important;
+}
+/* 按钮样式sss */
+.mainBtn{
+	color: #fff;
+	background: #0099FF;
+}
+.secondBtn{
+	color: #fff;
+	background: #bbb;
+}
+.btnHover{
+	opacity: 0.9;
+}
+/* 按钮样式 eee */
+
+.sys_gray_c{
+	color: #c9c9c9;
+}
+
+/* leftNav style  sss*/
+#leftNavIframe{
+	width: 100%;
+	height: 100%;
+	border: none;
+	box-sizing: border-box;
+}
+/*leftNav style  eee  */
+
+/* laydate 日期样式 */
+body .layui-laydate .layui-this {
+    background-color: #0099ff!important;
+    color: #fff!important;
+}
+.layui-laydate-header i:hover, .layui-laydate-header span:hover {
+    color: #0099ff !important;
+}
+.layui-laydate-footer span:hover {
+    color: #0099ff !important;
+}
+
+/* 下拉列表 */
+.droplistBox{
+	position: relative;
+	cursor: pointer;
+}
+.droplistBox_curr_list{
+	display: none;
+	position: absolute;
+	z-index: 2000;
+	top:105%;
+	left: -32%;
+	background: #fff;
+	border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px 2px #ddd;
+	overflow: auto;
+    /* height: 9vh; */
+	height: auto;
+	max-height: 9vh;
+}
+.droplistBox_curr_list li{
+	font-size: 1.45vh;
+	padding-left: 10px;
+	width: 5.5vw;
+}
+.droplistBox_curr_list li:hover{
+	background: #0099ff;
+	color: #fff;
+}
+.droplistBox_curr{
+	/* padding-left: 10px; */
+	font-size: 1.45vh;
+}
+.droplistBox_curr:after{
+	content: "▼";
+	display: inline-block;
+	clear: both;
+	/* color: #0099ff; */
+	font-size: 12px;
+    margin-left: 0.2vw;
+}
+.droplistBox:hover .droplistBox_curr_list{
+	display: block;
+}
+/* .droplistBox:hover .droplistBox_curr:after{
+	content: "▲";
+	display: inline-block;
+	clear: both;
+} */
+
+/* 时间选择器样式 */
+.Wdate{
+	display: none;
+    height: 29px;
+    border-radius: 15px;
+    background: none;
+    border: 1px solid #bbb;
+    padding-left: 10px;
+    box-sizing: border-box !important;
+}
+.Wdate.active{display: block;}
+
+#slider-vertical .ui-slider-range-min{background: #0099ff;}
+
+/* common form sss*/
+.form_ground {
+    position: relative;
+    margin: 2.5vh 0;
+	font-size: 0.875rem;
+	line-height: 3.93vh;
+}
+.mustDo {
+    line-height: 3.93vh;
+}
+.mustDo:before {
+    content: "*";
+    display: inline-block;
+    color: red;
+    clear: both;
+}
+.form_div_item {
+    width: 74.6%;
+}
+.form_item {
+    height: 3.93vh;
+    width: 100%;
+    background: none;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid #bbb;
+}
+/* common form eee*/
+
+/* 自定义弹窗样式 sss */
+.diy_layer{display: none;width: 500px;padding: 20px 40px;padding-bottom: 0px;}
+.layui-layer-btn.layui-layer-btn-{text-align: center;margin-bottom: 15px;}
+.layer-anim-05 .layui-layer-btn.layui-layer-btn- .layui-layer-btn0,.layui-layer-btn.layui-layer-btn- .layui-layer-btn2{
+	background: #e3e6e9;border: none;border-radius: 15px;padding: 0.52vh 2.05vw;
+	color: #000;
+	line-height: inherit;
+}
+.layer-anim-05 .layui-layer-btn.layui-layer-btn- .layui-layer-btn1{
+	color: #fff;background: #0099ff;border: none;border-radius: 15px;padding: 0.52vh 2.05vw;
+	line-height:inherit;
+}
+.layui-layer-btn.layui-layer-btn- button:hover{
+	opacity: 0.9;
+}
+.layui-layer.layui-layer-page{z-index: 20000000 !important;}
+.layui-layer-setwin .layui-layer-min,.layui-layer-setwin .layui-layer-max{display: none;}
+/* 自定义弹窗样式 eee */
+
+.showMore{
+	position: absolute;
+	top: -7%;
+    left: -87%;
+	display: inline-block;
+    width: 150px;
+    font-weight: bold;
+	display: none;
+}
+.swiper-container{width: 100%;height: 50px;position: absolute;z-index: 20000;bottom: 0;cursor: row-resize;}
+.swiper-container>a{display: inline-block;width: 100%;height: 100%;cursor: row-resize;}
+#svgLayout_box{overflow: hidden;}
+.editLayerBtnBox{
+	border-radius: 12px;
+    border: 1px solid #ddd;
+}

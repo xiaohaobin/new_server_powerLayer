@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/summary.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" href="css/icons.css">
+		<style type="text/css">
+			
+			
+			#wide_time_player {
+				background: url(img/bg_wide_time_player.png) center repeat-x;
+			}
+			
+			#wide_time_player .sTimeSlider {
+				background: url(img/time_slider_bg.png) center repeat-x;
+			}
+			
+			.ui-widget-content {
+				background: #ffffff url(img/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+				width: 7px;
+				height: 24px;
+				background: red;
+			}
+			
+			.sTimeSlider>span {
+				width: 7px;
+				height: 24px;
+				background: red;
+				position: absolute;
+				z-index: 700;
+			}
+			div.switch_icon{
+				background: url(img/summary_sprite_controls2.png) no-repeat 0 0;
+			}
+			.switch_icon.play {
+			    background-position: -26px -50px;
+			}
+			
+			#zoom_slider_cont {
+			    position: absolute;
+			    top: 30px;
+			    left: 10px;
+			    z-index: 10;
+			    height: 291px;
+			    width: 26px;
+			    background: url(img/bg_zoom.png) !important;
+			}
+			#sZoomSlider{
+				position: relative;
+			}
+			#sZoomSlider>span {
+				position: absolute;
+				display: inline-block !important;
+				width: 24px !important;
+				height: 7px !important;
+			    border: 1px solid #aaaaaa;
+			    background: #ffffff url(img/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x !important;
+			    color: #222222;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="main_container" id="mc">
+			
+			<div class="main_tab_frame">
+				<div id="content_top" style="height: 754px;">
+				
+					<div class="maincontent_main">
+						<div id="canvasHolder">
+							<canvas id="sunCanvas" width="1036" height="754"></canvas>							
+							<!--面板sss-->
+							<canvas id="mainCanvas" width="1036" height="754" style="display: none;"></canvas>
+							<!--面板eee-->			
+										
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="timestamp">&nbsp;</div>
+			<div id="wide_time_player">
+				<div class="refresh">
+					<div class="switch_icon refresh_icon">&nbsp;</div>
+				</div>
+				
+				<div class="tp_play">
+					<div class="switch_icon tp_playImg play">&nbsp;</div>
+				</div>
+			
+				<div class="wtp_time_ctrl">
+					<div class="tp_prevMin">
+						<div class="switch_icon tp_prevMinImg">&nbsp;</div>
+					</div>
+					<div class="switch_icon clock">&nbsp;</div>
+					<div class="time">18:46</div>
+					<div class="tp_nextMin">
+						<div class="switch_icon tp_nextMinImg">&nbsp;</div>
+					</div>
+				</div>
+
+				<div class="sliderCont">
+					<div id="sliderContInner">
+						<div class="sTimeSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+							<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 78.2488%;"></span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="js/common.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="js/summary.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

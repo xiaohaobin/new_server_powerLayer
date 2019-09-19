@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>物理图</title>
+		<link rel="stylesheet" type="text/css" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/system.css">
+		
+		<style type="text/css">
+			.mb-title>div{
+				padding: 12px 20px;
+				cursor: pointer;
+				position: relative;
+				border-radius: 0 0 5px 5px;
+				color: #999;
+			}
+			.mb-title>div>i {
+				display: block;
+				content: '';
+				width: 0;
+				height: 2px;
+				background: #009cff;
+				transition: All 0.3s linear;
+				position: absolute;
+				top: 0px;
+				left: 50%;
+				right: 0px;
+			}
+			.mb-title>div>i.cur{width: 100%;left: 0;}
+			#header{
+				height: 200px;
+				widows: 100%;
+			}
+			
+			/* 架构样式 sss */
+			.container {
+			    background: #f2f2f2;
+			}
+			.div_content {
+			    background: #fff;
+			    min-height: 666px;
+			    border-radius: 5px;
+			    margin: 20px auto;
+			    width: 80%;
+			}
+			.mb-panel {
+			    width: 100%;
+			    min-height: 516px;
+			    position: relative;
+			    padding: 10px;
+			}
+			.mb-panel, .mb-panel * {
+			    box-sizing: border-box;
+			}
+			.navBox {
+				background: #fff;
+				min-height: 666px;
+				border-radius: 5px;
+				width: 16%;
+				margin: 20px auto;
+			}
+			/* 架构样式 eee */
+		</style>
+		
+		<link rel="stylesheet" type="text/css" href="css/summary.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" href="css/icons.css">		
+		<link rel="stylesheet" type="text/css" href="css/physicalMap.css"/>
+		<script src="js/siteData.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<!-- 头部 sss-->
+		<div id="header">
+			
+		</div>
+		<!--头部 eee -->
+		
+		
+		<!-- 中间内容sss -->
+		<div class="container flex_space-evenly">
+			
+			<!-- 左边菜单sss -->
+			<div class="navBox" id="nav_box">
+				<!-- <iframe src="leftNav.html" width="" height="" id="leftNavIframe"></iframe> -->
+			</div>
+			<!-- 左边菜单eee -->
+			
+			<!-- 右边主要内容sss -->
+			<div class="div_content" id="devicePage">
+				<div class="mb-title flex_flex-start">
+					<div>
+						<a href="physicalMap.html">物理图</a>
+						<i class="cur"></i>
+					</div>	
+					<div>
+						<a href="logicDiagram.html">逻辑图</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="chart.html">图表</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="notice.html">警告信息</a>
+						<i></i>
+					</div>	
+				</div>
+				
+				
+				<div class="mb-panel" id="mainAppBox">
+					<div class="datePickerBox parentClear mb-5">
+						<input id="datePicker_hours" class="Wdate active rf" readonly="readonly"/>
+					</div>
+					
+					<div class="main_container" id="mc">
+						
+							<!-- 播放器sss -->
+						<div id="wide_time_player" class="mb-10 pt-10">
+							<div class="refresh mr-20">
+								<div class="switch_icon refresh_icon">&nbsp;</div>
+							</div>
+							<div class="speedBox noFloat fs-14">
+								<div class="constant_speed mainColor">
+									<b>X1.0</b>
+									<span class="speed_sign"></span>
+								</div>
+								<div class="quick_speed c_gray">
+									<b>X1.5</b>
+									<span class="speed_sign"></span>
+								</div>
+							</div>
+							
+							<div class="noFloat parentClear chartPlayBox">
+								<div class="parentClear">
+									<div class="tp_prevMin">
+										<div class="switch_icon tp_prevMinImg">&nbsp;</div>
+									</div>
+									<div class="tp_play">
+										<div class="switch_icon tp_playImg play">&nbsp;</div>
+									</div>
+									<div class="tp_nextMin">
+										<div class="switch_icon tp_nextMinImg">&nbsp;</div>
+									</div>
+								</div>
+								<div class="wtp_time_ctrl parentClear noFloat text-c">
+									<span>时间:</span>
+									<span class="time text-c">18:46</span>
+								</div>
+							</div>
+						
+							<div class="lineChartBox">
+								<div class="panelChartBox_content" id="panelChartBox_content"></div>
+							</div>
+											
+							<div class="sliderCont">
+								<div id="sliderContInner">
+									<div class="sTimeSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+										<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 78.2488%;"></span>
+									</div>
+								</div>										
+							</div>
+						</div>
+						<!-- 播放器eee -->
+						
+						<!-- 优化器面板的操作栏sss -->
+						<div class="pd_20 mainPanelToolbar flex_flex-start">
+							<div class="mr_20">
+								<img src="img/panel_error_icon.png" >
+								<span>发电异常</span>
+							</div>
+							<div class="mr_20">
+								<img src="img/panel_outline_icon.png.png" >
+								<span>不在线</span>
+							</div>
+							
+							<div class="mr_20">
+								<img src="img/panel_outline_icon.png.png" >
+								<span>无优化器</span>
+							</div>
+							<div class="mr_20">
+								
+								<span>单位</span>
+								<span>:Wh</span>
+							</div>
+							
+							<div class="mr_20 hide editLayerBtnBox">
+								<a href="javascript:;" class="editLayerBtn pt_5 pb_5 pl_20 pr_20">
+									<img src="img/edit.png" alt="">
+									<span>修改布局</span>
+								</a>
+							</div>
+						</div>
+						<!-- 优化器面板的操作栏eee -->
+						
+						<!-- 太阳动画模块和svg面板布局sss -->
+						<div class="main_tab_frame" id="svgLayout_box">
+							<!-- 太阳动画 sss -->
+							<div id="content_top" style="height: 754px;">							
+								<div class="maincontent_main">
+									<div id="canvasHolder">
+										<canvas id="sunCanvas" width="1036" height="754"></canvas>							
+										<!--面板sss-->
+										<canvas id="mainCanvas" width="1036" height="754" style="display: none;"></canvas>
+										<!--面板eee-->			
+										
+									</div>
+								</div>
+							</div>
+							<!-- 太阳动画 eee -->
+							
+							<!-- 统计 -->
+							<div class="siteStatic flex_flex-start">
+								<div class="ml_15 mr_15 siteStatic_box">
+									<span>
+										逆变器（台）:
+									</span>
+									<b class="mainColor">
+										<span>{{siteData.inverter.length}}</span>										
+									</b>
+								</div>
+								<div class="siteStatic_box">
+									<span>
+										优化器（台）:
+									</span>
+									<b class="mainColor">
+										<span>{{mainData2.length}}</span>										
+									</b>
+								</div>
+							</div>
+							
+							<div class="compassBox">
+								<img src="img/zhibeizhen.png" >
+							</div>
+							
+							<!-- 滑块sss -->
+							<div class="svg_slideBox">
+								
+								<div id="zoom_slider_cont">
+									<!-- <a href="javascript:;" class="showMore" >点击显示更多</a> -->
+									<div class="zoom_add" @click="toTransformScaleFn(1)"></div>
+									<div id="slider-vertical" style="height:232px;"></div>
+									<div class="zoom_dec" @click="toTransformScaleFn(-1)"></div>
+									<b class="ratio_val mainColor">
+										100%
+									</b>
+								</div>
+								
+							</div>
+							<!-- 滑块eee -->
+							
+							<!-- 面板布局 sss -->
+							<div id="svg_panel_box">
+								<div class="svgBox">				
+								</div>
+								<div class="t_svgBox">					
+								</div>
+								
+							</div>
+							<!-- 面板布局 eee -->
+							
+							<!-- 加载更多组件 sss-->
+							<div class="swiper-container"  @click="showMoreFn()">
+								<a href="javascript:;" title="点击显示更多内容"></a>
+								<!-- <div class="swiper-scrollbar"></div> -->
+							</div>
+							<!-- 加载更多组件 eee -->
+							
+						</div>					
+						<!-- 太阳动画模块和svg面板布局eee -->						
+					</div>
+					
+					<!-- 自定义弹窗区域 sss-->
+					
+					<!-- 面板参数表单 sss-->
+					<div class="diy_layer panel_param_form_layer" >
+						<form action="#" id="panel_param_form">
+							<div class="form_ground parentClear">
+								<label for="" class="lf">序列号:</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_panel_sNum" id="" placeholder="" readonly="readonly">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">名称:</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_panel_name" id="" placeholder="">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">制造商:</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_panel_manufacturer" id="" placeholder="">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">型号:</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_panel_model" id="" placeholder="" >
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">优化器电压(V):</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_panel_optimizerV" id="" placeholder="">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">功率(W):</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_panel_power" id="" placeholder="">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">电压(W):</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_panel_voltage" id="" placeholder="">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">电流(A):</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_panel_electricity" id="" placeholder="">
+								</div>											
+							</div>
+						</form>
+					</div>
+					<!-- 面板参数表单 eee -->
+					
+					<!-- 逆变器参数表单 sss-->
+					<div class="diy_layer inv_param_form_layer" >
+						<form action="#" id="inv_param_form">
+							<div class="form_ground parentClear">
+								<label for="" class="lf">序列号:</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_inv_sNum" id="" placeholder="" readonly="readonly">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">名称:</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_inv_name" id="" placeholder="">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">制造商:</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_inv_manufacturer" id="" placeholder="">
+								</div>											
+							</div>
+							<div class="form_ground parentClear">
+								<label for="" class="lf">型号:</label>
+								<div class="rf form_div_item">
+									<input type="text" class="form_item form_item_input_text input_inv_model" id="" placeholder="" >
+								</div>											
+							</div>
+							
+						</form>
+					</div>
+					<!-- 逆变器参数表单 eee -->
+					
+					<!-- tigo弹窗提示 sss-->
+					<div class="diy_layer editPL_layer" >
+						<div class="pt_20 pb_20 pl_10 pr_10">
+							<div>
+								<p class="mb_10">尊敬的用户！您好，您可以点击以下链接前往tigo系统进行布局的修改：</p>
+								<p>
+									<a href="https://installations.tigoenergy.com/base/login/login?skin=growatt&lang=6" target="_blank" class="mainColor">
+										https://installations.tigoenergy.com/base/login/login?skin=growatt&lang=6
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- tigo弹窗提示 eee -->
+					
+					
+					<!-- 自定义弹窗区域 eee -->
+				</div>
+			</div>
+			
+			<!-- 右边主要内容sss -->
+		</div>
+		<!-- 中间内容 -->
+		
+		<footer>
+			<div class="text-c">
+				<span>地步</span>
+			</div>
+		</footer>
+		
+		<script src="lib/d3/d3.v3.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="js/jquery.nicescroll.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.xhb.plugin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/highcharts-more.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/no-data-to-display.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/solid-gauge.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>				
+		<script src="js/physicalMap.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			//是否属于tigo逆变器
+			 oComFn.TigoInvFn();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		 <!-- <link rel="stylesheet" href="example.css" type="text/css"> -->
+		<link rel="stylesheet" href="2.2.5/dropkick.css" type="text/css">
+		
+		<title></title>
+		<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>		
+		<!-- <script src="jquery.dropkick-min.js"></script> -->
+		<script src="2.2.5/dropkick.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.dk-selected:hover:after, .dk-selected:focus:after,.dk-selected:after{
+				border-left: none !important;
+			}
+			.dk-selected{
+				padding-top: 0.5vh;
+				padding-bottom: 0.5vh;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+		 <div class="fields">
+		<button type="button" class="getVal" onclick="getVal()">获取选中的值</button>
+		<button type="button" class="addVal" onclick="addVal()">添加一个option</button>
+		
+		<button type="button"  onclick="getItem()">获取指定索引的值</button>
+		<button type="button"  onclick="removeVal()">删除指定的索引的option</button>
+		
+		<button type="button"  onclick="resetVal()">是否重置到第一个</button>
+		<button type="button"  onclick="disableVal()">禁用和启用选项</button>
+		
+		<button type="button"  onclick="openOrClose()">切换多选</button>
+		<button type="button"  onclick="refreshVal()">重建</button>
+		<button type="button"  onclick="getLen()">获取长度</button>
+		<p></p>
+		  <select name="country-opt-disabled" class="default" tabindex="8" id="select" >
+		
+		    <option value="11">我日你妈卖批</option>
+		
+		    <option value="AU" disabled>Australia</option>
+		
+		    <option value="CA">Canada</option>
+		
+		    <option value="DE" disabled>Germany</option>
+		
+		    <option value="JP">Japan</option>
+		
+		    <option value="GB">United Kingdom</option>
+		
+		    <option value="US" disabled>United States</option>
+			
+			<option value="NE">Nebraska</option>
+			
+			<option value="NV">Nevada</option>
+			
+			<option value="NH">New Hampshire</option>
+			
+			<option value="NJ">New Jersey</option>
+			
+			<option value="NM">New Mexico</option>
+			
+			<option value="NY">New York</option>
+			
+			<option value="NC">North Carolina</option>
+			
+			<option value="ND">North Dakota</option>
+			
+			<option value="OH">Ohio</option>
+			
+			<option value="OK">Oklahoma</option>
+			
+			<option value="OR">Oregon</option>
+			
+			<option value="PA">Pennsylvania</option>
+			
+			<option value="RI">Rhode Island</option>
+			
+			<option value="SC">South Carolina</option>
+			
+			<option value="SD">South Dakota</option>
+			
+			<option value="TN">Tennessee</option>
+			
+			<option value="TX">Texas</option>
+			
+			<option value="UT">Utah</option>
+			
+			<option value="VT">Vermont</option>
+			
+			<option value="VA">Virginia</option>
+			
+			<option value="WA">Washington</option>
+			
+			<option value="WV">West Virginia</option>
+			
+			<option value="WI">Wisconsin</option>
+			
+			<option value="WY">Wyoming</option>
+		
+		  </select>
+		  		  
+		 </div>
+		 
+		 <script type="text/javascript">
+			 $("#select").dropkick({
+				 change: function (value, label) {
+					 console.log($("#select").val(), $("#select").children(":selected").text())
+				}
+			 });
+			 var select = new Dropkick("#select");
+			 //get值
+			function getVal(){
+				console.log(select.value);
+			}
+			 
+			  //add值
+			 function addVal(){
+			 	select.add("我日你mmp", 5);
+			 }
+			 
+		 	 //del值
+		 	function removeVal(){
+		 		select.remove(4);
+		 	}
+		 	
+			//
+			function getItem(){
+				select.item(5);
+			}
+			
+			//禁用和启用
+			function disableVal(){
+				// 禁用整个选择
+				// select.disable();
+
+				// 禁用只有索引的选项
+				// select.disable(0, true);
+
+				// 重新启用整个选择
+				// select.disable(false);
+
+				// 重新启用只有索引的选项
+				select.disable(1, false);
+			}
+			
+			//重置
+			function resetVal(){
+				//重置为原来的“选定”选项(上一个)
+				select.reset(false);
+				
+				//重置为选择中的第一个选项
+				// select.reset(true);
+			}
+			//重建
+			function refreshVal(){
+				select.refresh();
+			}
+			
+			//获取长度
+			function getLen(){
+				alert(select.length);
+			}
+		
+			function openOrClose(){
+				console.log(select.options)
+			}
+			
+			
+		 </script>
+	</body>
+</html>

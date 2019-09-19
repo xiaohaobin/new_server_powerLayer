@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>电站图表</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/system.css">
+		<link rel="stylesheet" type="text/css" href="css/chart.css"/>
+		<style type="text/css">
+			.mb-title>div{
+				padding: 12px 20px;
+				cursor: pointer;
+				position: relative;
+				border-radius: 0 0 5px 5px;
+				color: #999;
+			}
+			.mb-title>div>i {
+				display: block;
+				content: '';
+				width: 0;
+				height: 2px;
+				background: #009cff;
+				transition: All 0.3s linear;
+				position: absolute;
+				top: 0px;
+				left: 50%;
+				right: 0px;
+			}
+			.mb-title>div>i.cur{width: 100%;left: 0;}
+			#header{
+				height: 200px;
+				widows: 100%;
+			}
+			
+			/* 架构样式 sss */
+			.container {
+			    background: #f2f2f2;
+			}
+			.div_content {
+			    background: #fff;
+			    min-height: 666px;
+			    border-radius: 5px;
+			    margin: 20px auto;
+			    width: 80%;
+			}
+			.mb-panel {
+			    width: 100%;
+			    min-height: 516px;
+			    position: relative;
+			    padding: 10px;
+			}
+			.mb-panel, .mb-panel * {
+			    box-sizing: border-box;
+			}
+			.navBox {
+				background: #fff;
+				min-height: 666px;
+				border-radius: 5px;
+				width: 16%;
+				margin: 20px auto;
+			}
+			/* 架构样式 eee */
+		</style>
+		<script src="js/siteData.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 头部 sss-->
+		<div id="header" >
+			
+		</div>
+		<!--头部 eee -->
+		
+		
+		<!-- 中间内容sss -->
+		<div class="container flex_space-evenly">
+			
+			<!-- 左边菜单sss -->
+			<div class="navBox" id="nav_box">
+				<!-- <iframe src="leftNav.html" width="" height="" id="leftNavIframe"></iframe> -->
+			</div>
+			<!-- 左边菜单eee -->
+			
+			<!-- 右边主要内容sss -->
+			<div class="div_content" id="devicePage">
+				<div class="mb-title flex_flex-start">
+					<div>
+						<a href="physicalMap.html">物理图</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="logicDiagram.html">逻辑图</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="chart.html">图表</a>
+						<i class="cur"></i>
+					</div>	
+					<div>
+						<a href="notice.html">警告信息</a>
+						<i></i>
+					</div>	
+				</div>
+				
+				
+				<div class="mb-panel" id="mainAppBox">
+					<div class="panelChartBox">
+						<div class="parentClear panelChartBox_date">
+							<div class="rf flex_flex-start">
+								<div class="mg_15 datePickerBox">
+									<input id="datePicker_day" class="Wdate active" readonly="readonly"/>
+									<input id="datePicker_month" class="Wdate" readonly="readonly"/>
+									<input id="datePicker_year" class="Wdate" readonly="readonly"/>
+									<input id="datePicker_year_5" class="Wdate" readonly="readonly"/>
+								</div>
+								<div class="mg_15">
+									<div class="toggle_date_btn_box flex_flex-start">
+										<a href="javascript:;" class="toggle_date_btn pt_5 pb_5 pl_15 pr_15 active">日</a>
+										<a href="javascript:;" class="toggle_date_btn pt_5 pb_5 pl_15 pr_15">月</a>
+										<a href="javascript:;" class="toggle_date_btn pt_5 pb_5 pl_15 pr_15">年</a>
+										<a href="javascript:;" class="toggle_date_btn pt_5 pb_5 pl_15 pr_15">近5年</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panelChartBox_content" id="chartBox"></div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<!-- 右边主要内容sss -->
+		</div>
+		<!-- 中间内容 -->
+		
+		<footer>
+			<div class="text-c">
+				<span>地步</span>
+			</div>
+		</footer>
+		
+		<script src="lib/d3/d3.v3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script src="lib/My97DatePicker/4.8/WdatePicker.js" type="text/javascript" charset="utf-8"></script> -->
+		<script src="lib/highChart/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/highcharts-more.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/no-data-to-display.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/highChart/solid-gauge.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.xhb.plugin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/chart.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

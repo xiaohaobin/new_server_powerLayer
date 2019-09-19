@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>添加优化器-设置布局</title>
+		
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/system.css">
+		<!-- <link rel="stylesheet" type="text/css" href="lib/dropkick/2.2.5/dropkick.css"/> -->
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+		<!-- 布局模块样式 -->
+		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+		
+		
+		<style type="text/css">
+			.mb-title>div{
+				padding: 12px 20px;
+				cursor: pointer;
+				position: relative;
+				border-radius: 0 0 5px 5px;
+				color: #999;
+			}
+			.mb-title>div>i {
+				display: block;
+				content: '';
+				width: 0;
+				height: 2px;
+				background: #009cff;
+				transition: All 0.3s linear;
+				position: absolute;
+				top: 0px;
+				left: 50%;
+				right: 0px;
+			}
+			.mb-title>div>i.cur{width: 100%;left: 0;}
+			#header{
+				height: 200px;
+				widows: 100%;
+			}
+			
+			/* 架构样式 sss */
+			.container {
+			    background: #f2f2f2;
+			}
+			.div_content {
+			    background: #fff;
+			    min-height: 666px;
+			    border-radius: 5px;
+			    margin: 20px auto;
+			    width: 80%;
+			}
+			.mb-panel {
+			    width: 100%;
+			    min-height: 516px;
+			    position: relative;
+			    padding: 10px;
+			}
+			.mb-panel, .mb-panel * {
+			    box-sizing: border-box;
+			}
+			.navBox {
+				background: #fff;
+				min-height: 666px;
+				border-radius: 5px;
+				width: 16%;
+				margin: 20px auto;
+			}
+			/* 架构样式 eee */
+		</style>
+	</head>
+	<body>
+		<!-- 头部 sss-->
+		<div id="header">
+			
+		</div>
+		<!--头部 eee -->
+		
+		
+		<!-- 中间内容sss -->
+		<div class="container flex_space-evenly">
+			
+			<!-- 左边菜单sss -->
+			<div class="navBox">
+				<!-- <iframe src="leftNav.html" width="" height="" id="leftNavIframe"></iframe> -->
+			</div>
+			<!-- 左边菜单eee -->
+			
+			<!-- 右边主要内容sss -->
+			<div class="div_content" id="devicePage">
+				<div class="mb-title flex_flex-start">
+					<div>
+						<a href="javascript:;">物理图</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="javascript:;">逻辑图</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="chart.html">图表</a>
+						<i></i>
+					</div>	
+					<div>
+						<a href="notice.html">警告信息</a>
+						<i></i>
+					</div>	
+				</div>
+				
+				
+				<div class="mb-panel" id="mainAppBox">
+					
+					<!-- 暂无数据sss -->					
+					<div class="noDataBox">
+						<div class="text-c">
+							<img src="img/noData.png" >
+						</div>
+						<div class="text-c">
+							<span class="noData_txt">暂无数据</span>
+						</div>
+						<div class="text-c">
+							<button type="button" class="add_optimizer">添加优化器</button>
+						</div>
+					</div>
+					<!-- 暂无数据eee -->
+					
+					<!-- 添加优化器容器sss -->
+					<div class="addOptimizerBox hide animated" id="addOptimizerBox">
+						<div class="locationNavBox">
+							<span class="locationNav_1">物理图</span>
+							<span>&gt;</span>
+							<span class="locationNav_2">添加优化器</span>
+						</div>
+						<div class="addOptimizerFormBox">
+							<form action="#" class="addOptimizerForm pd_20">
+								<div class="form_ground parentClear">
+									<label for="Optimizer_select" class="mustDo lf">优化器厂商</label>
+									<select class="form_item form_item_select rf" id="Optimizer_select" @change="getInvList()">
+										<option value="0" data-val="2" selected="selected">Tigo</option>
+										<option value="1" data-val="1">Growatt</option>
+									</select>
+								</div>															
+								
+								<div class="form_ground parentClear">
+									<label for="inverterList_select" class="mustDo lf">选择逆变器</label>
+									<select class="form_item form_item_select rf" id="inverterList_select">
+										<option v-bind:value="v" v-for="(v,i) in inverterList">{{v}}</option>
+									<!-- 	<option value="1">231rowatt1515</option>
+										<option value="3">12igo1111</option>
+										<option value="4">231rowatt1515</option>
+										<option value="5">12igo1111</option>
+										<option value="6">231rowatt1515</option> -->
+									</select>
+								</div>
+																
+								<div class="MF_toggleType">
+									
+									<!-- tigo  厂商 sss-->
+									<div class="MF_tigo MF_formBox active">
+										<div class="form_ground parentClear">
+											<div class="rf form_div_item flex_space-between">
+												<span class="c_c9 lh_36">用户名:</span>
+												<input type="text" class="form_item form_item_input_text" id="tigoAccount_input" placeholder="请输入用户名">
+											</div>											
+										</div>
+										<div class="form_ground parentClear">
+											<label for="" class="mustDo lf">授权tigo账号登录</label>
+											<div class="rf form_div_item flex_space-between">
+												<span class="c_c9 lh_36">密码:</span>
+												<input type="text" class="form_item form_item_input_text" id="tigoPwd_input" placeholder="请输入密码">
+											</div>											
+										</div>
+										<div class="form_ground parentClear">
+											<div class="rf form_item text-c no-border">
+												<button type="button" class="form_btn form_btn_verify" @click="verifyTigoFn()">验证</button>
+											</div>											
+										</div>
+										<div class="form_ground parentClear">
+											<label for="InvLabel_input" class="mustDo lf">逆变器标签</label>
+											<div class="rf form_div_item">
+												<input type="text" class="form_item form_item_input_text" id="InvLabel_input" placeholder="">
+												<p><span class="c_c9">*请输入您在tigo系统输入的逆变器标签</span></p>
+											</div>											
+										</div>
+									</div>
+									<!-- tigo  厂商 eee-->
+									
+									<!-- growatt  厂商 sss-->
+									<div class="MF_growatt MF_formBox">
+										<!-- <div class="form_ground parentClear">
+											<label for="modelPower_input" class="mustDo lf">填写模块功率（DC）</label>
+											<input type="number" class="form_item form_item_input_number rf" id="modelPower_input">
+											<span class="form_unit">W</span>
+										</div> -->
+										
+										<div class="form_ground parentClear">
+											<label for="stringCount_select" class="mustDo lf">组串数量</label>
+											<select class="form_item form_item_select rf" id="stringCount_select" @change="stringCount_selectFn()">
+												<option  value="0">请选择组串数量</option>
+												<option  v-for="i in panel_string_num" v-bind:value="i">{{i}}</option>
+											</select>
+										</div>
+										
+										<div class="form_ground parentClear">
+											<label for="" class="mustDo lf">面板数量</label>
+											<div class="rf form_div_item panelCount_Box flex_flex-start flex_wrap">
+												<div class="panelCount_item" v-for="(v,i) in panel_num_arr">
+													<p><span class="required">组串{{ numToLetter(v.sId) }}</span></p>
+													<div class="panelCount_item_div flex_flex-start">
+														<a href="javascript:;" class="calculate_btn calculate_btn_sub" @click="if(v.panelNum!=0)v.panelNum--"></a>
+														<input type="number" name="" 															
+															class="form_item_input_number panelCount_item_input" 
+															min="0" max="32"															
+															v-model="v.panelNum" />
+															<!-- v-bind:value="v.panelNum" /> -->
+														<a href="javascript:;" class="calculate_btn calculate_btn_add" @click="if(v.panelNum<32)v.panelNum++"></a>
+													</div>
+												</div>
+												
+											
+											</div>
+										</div>
+										
+										<div class="form_ground parentClear">
+											<label for="panelLayout_input" class="mustDo lf">设置面板布局</label>
+											<input type="text" class="form_item form_item_input_text rf" id="panelLayout_input" readonly="readonly">
+											<span class="form_unit toPanelLayout" @click="toLeyoutPage">
+												<!-- <img src="img/jiantou.png" alt=""> -->
+												去设置
+											</span>
+										</div>
+									</div>
+									<!-- growatt  厂商 eee-->
+									
+								</div>
+								<div class="form_btn_box text-c">
+									<button class="form_btn form_btn_sure" type="button" @click="toPanelLayout()">确定</button>
+									<button class="form_btn form_btn_cancel" type="button">取消</button>									
+								</div>
+							</form>
+						</div>					
+					</div>
+					<!-- 添加优化器容器 -->
+					
+					<!-- 设置布局sss -->
+					<div class="setLayoutBox hide animated">
+						<!-- <iframe src="setLayout.html" width="" height=""></iframe> -->
+						<div class="flex_space-between setLayout_header ml_30 mr_30 mb_10">
+							<div class="locationNavBox">
+								<span class="locationNav_1">物理图</span>
+								<span>&gt;</span>
+								<span class="locationNav_2">添加优化器</span>
+							</div>
+							<div class="setLayout_title">
+								<h4 class="fs_16 c_black">设置面板布局</h4>
+							</div>
+							<div class="setLayout_close">
+								<a href="javascript:;" class="setLayout_closeBtn" @click="close_setLayoutFn"><img src="img/setLayout/closeWin.png" alt=""></a>
+							</div>
+						</div>
+						
+						<div class="setLayout_section ml_30 mr_30">
+							<!-- data-sign="recycleBox"  拥有该属性表示该元素是作为删除面板节点的回收站 -->
+							<div class="setLayout_section_top flex_flex-start" data-sign="recycleBox">
+								<div class="flex_flex-start">
+									<div class="mr_30">
+										<b class="mainColor fs-20">{{panel_num_total}}</b>
+										<span class="fs_14 block">剩余面板数</span>
+									</div>
+									<div class="mr_30 ml_30">
+										<b class="mainColor fs-20" v-bind:class="isZeroClass(panel_num_arr_curritem.panelNum)">{{panel_num_arr_curritem.panelNum}}</b>
+										<!-- <span class="fs_14 block">剩余面板数</span> -->
+										<div class="panel_string_list_box droplistBox">
+											<span class="droplistBox_curr" v-bind:class="isZeroClass(panel_num_arr_curritem.panelNum)">{{panel_num_arr_curritem.sName}}路</span>
+											<div class="droplistBox_curr_list">
+												<ul>
+													<li v-for="(v,i) in panel_num_arr" 
+														v-bind:data-isuser="v.isUser" 
+														v-bind:data-curr="v.curr" 
+														v-bind:class="isZeroClass(v.panelNum)"
+														v-bind:data-panelnum="v.panelNum" @click="toggleCurrString(v)">{{v.sName}}路</li>
+							
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="mt_30 mb_30 ml_10 mr_10">/</div>
+								<div class="flex_flex-start setLayout_section_panelDes mr_30 mt_31">
+									<span class="fs_14">面板方向：</span>
+									<div class="radioBigbox">
+										<div class="mr_20">
+											<input type="radio" name="panel_d" id="panel_shuiping_1" class="sys_input_radio" checked="checked" value="270" v-model="panelDir">
+											<label for="panel_shuiping_1" class="fs_14">
+												<img src="img/setLayout/row.png" alt="" style="border-left:2px solid #009CFF;">
+												水平向左
+											</label>
+										</div>
+										<div class="mr_20">
+											<input type="radio" name="panel_d" id="panel_shuiping_2" class="sys_input_radio"  value="90" v-model="panelDir">
+											<label for="panel_shuiping_2" class="fs_14">
+												<img src="img/setLayout/row.png" alt="" style="border-right:2px solid #009CFF;">
+												水平向右
+											</label>
+										</div>
+									</div>
+									<div class="radioBigbox">
+										<div class="mr_20">
+											<input type="radio" name="panel_d" id="panel_chuizhi_1" class="sys_input_radio" value="0" v-model="panelDir" >
+											<label for="panel_chuizhi_1" class="fs_14">
+												<img src="img/setLayout/col.png" alt="" style="vertical-align: sub;border-top:2px solid #009CFF;">
+												垂直向上
+											</label>
+										</div>		
+										<div>
+											<input type="radio" name="panel_d" id="panel_chuizhi_2" class="sys_input_radio" value="180" v-model="panelDir" >
+											<label for="panel_chuizhi_2" class="fs_14">
+												<img src="img/setLayout/col.png" alt="" style="vertical-align: sub;border-bottom:2px solid #009CFF;">
+												垂直向下
+											</label>
+										</div>	
+									</div>
+									
+																
+								</div>
+								<div class="mt_30 mb_30 ml_10 mr_10">/</div>
+								<div class="flex_flex-start setLayout_section_panelFn mt_31">
+									<span class="fs_14">面板布局方式：</span>
+									<div class="mr_20">																			
+										<label for="panel_fn_model">			
+											<input type="radio" name="panel_f" id="panel_fn_model" class="sys_input_radio" value="model" v-model="panelLayoutWay">	
+											<span class="fs-14">模块</span>											
+										</label>
+									</div>
+									<div>
+										
+										<label for="panel_fn_string" class="panel_fn_string_box flex_flex-start">		
+											<input type="radio" name="panel_f" id="panel_fn_string" class="sys_input_radio" value="string" v-model="panelLayoutWay">						
+											<span class="fs-14">串：</span>
+											<div class="string_toTop active ml_5 mr_5 string_icon" data-dir="1"></div>
+											<div class="string_toBottom mr_5 string_icon" data-dir="2"></div>
+											<div class="string_toLeft mr_5 string_icon" data-dir="3"></div>
+											<div class="string_toRight ml_5 mr_5 string_icon" data-dir="4"></div>
+										</label>
+									</div>									
+								</div>
+								
+								<div class="layoutBtnBox">
+									<button class="form_btn mainBtn layout_table_save" type="button" @click="savePanelLayoutFn()">保存</button>
+									<!-- <button class="form_btn secondBtn layout_table_cancel" type="button">取消</button>	 -->
+								</div>
+								
+							</div>
+							
+							<div class="flex_space-between setLayout_section_center">
+								<div>
+									<b class="fs_14 c_black">系统映射</b>
+									<div class="inline-block ml_30">
+										<span>布局行列数设置</span>:
+										<input type="number" min="30" max="100" class="layout_table_input" @keyup="updateTableSize()" value="32">
+										<!-- <input type="number" min="30" max="100" class="layout_table_col_input" @keyup="updateTableCol()" value="32">
+										X
+										<input type="number" min="30" max="100" class="layout_table_row_input" @keyup="updateTableRow()" value="32"> -->
+									</div>
+								</div>
+								<div>
+									<input type="text" class="setLayout_section_input setLayout_section_input_SN" placeholder="请配置面板优化器的SN号">
+									<input type="text" class="setLayout_section_input setLayout_section_input_COM" placeholder="请输入COM地址">
+									<a href="javascript:;" class="setLayout_section_saveParam ml_25" @click="saveParanFn"><img src="img/setLayout/ok.png" ></a>
+									<a href="javascript:;" class="setLayout_section_cancelParam ml_15" @click="clearParamFn"><img src="img/setLayout/cancel.png" ></a>
+								</div>								
+							</div>
+							
+							<div class="setLayout_section_bottom">
+								<div class="layoutTableBox mg_15">
+									<table class="layoutTable_set" >
+										<tbody>
+											<tr class="layout_table_tr" v-for="k in panel_table_row_tr" v-bind:data-trid="k">
+												<td class="layout_table_td" v-for="i in panel_table_col_td" v-bind:data-tdid="i">
+													<div class="layout_table_item drop"></div>
+												</td>												
+											</tr>
+											
+										</tbody>
+										<!-- <tfoot>
+											<tr>
+												<td colspan="32">
+													<div class="text-c">
+														<a href="javascript:;" class="fs_18 mainColor loadMoreBtn" @click="addPanelTable">点击加载更多行...</a>
+													</div>
+												</td>
+											</tr>
+										</tfoot> -->
+									</table>
+								</div>
+								
+							</div>
+							
+						</div>
+						
+						
+					</div>
+					<!-- 设置布局eee -->
+					
+				</div>
+			</div>
+			
+			<!-- 右边主要内容sss -->
+		</div>
+		<!-- 中间内容 -->
+		
+		<footer>
+			<div class="text-c">
+				<span>地步</span>
+			</div>
+		</footer>
+		
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/jquery_easyui.js/jquery.easyui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.xhb.plugin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layout.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>
